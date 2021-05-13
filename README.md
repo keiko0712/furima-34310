@@ -36,7 +36,7 @@ Things you may want to cover:
 | first name         | string | null: false  |
 | family name (ruby) | string | null: false  |
 | first name (ruby)  | string | null: false  |
-| date               | string | null: false  |
+| birthday           | date   | null: false  |
 
  Association
 
@@ -47,8 +47,8 @@ Things you may want to cover:
 
 | Column                  | Type       | Options                          |
 | ----------------------- | -----------| -------------------------------- |
-| product name            | string     | null: false                      |
-| description of product  | string     | null: false                      |
+| product_name            | string     | null: false                      |
+| description of product  | text       | null: false                      |
 | user                    | references | null: false, foreign_key: true   |
 | category                | string     | null: false                      |
 | product status          | integer    | null: false                      |
