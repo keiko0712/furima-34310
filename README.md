@@ -44,7 +44,7 @@ Things you may want to cover:
 ## product テーブル
 
 | Column                  | Type       | Options                          |
-| ----------------------- | -----------| ----------- ---------------------|
+| ----------------------- | -----------| -------------------------------- |
 | product image           | string     | null: false                      |
 | product name            | string     | null: false                      |
 | description of product  | string     | null: false                      |
