@@ -32,10 +32,10 @@ Things you may want to cover:
 | nickname           | string | null: false                |
 | email              | string | null: false ,unique: true  |
 | encrypted_password | string | null: false                |
-| family name        | string | null: false                |
-| first name         | string | null: false                |
-| family name (ruby) | string | null: false                |
-| first name (ruby)  | string | null: false                |
+| family_name        | string | null: false                |
+| first_name         | string | null: false                |
+| family_name(ruby) | string | null: false                |
+| first_name(ruby)  | string | null: false                |
 | birthday           | date   | null: false                |
 
  Association
@@ -51,10 +51,10 @@ Things you may want to cover:
 | description of product  | text       | null: false                      |
 | user                    | references | null: false, foreign_key: true   |
 | category                | string     | null: false                      |
-| product status          | integer    | null: false                      |
-| delivery charge         | integer    | null: false                      |
-| shipping area_id        | integer    | null: false                      |
-| estimated shipping date | integer    | null: false                      |
+| product_status          | integer    | null: false                      |
+| delivery_charge         | integer    | null: false                      |
+| shipping_area_id        | integer    | null: false                      |
+| estimated_shipping_date | integer    | null: false                      |
 
 Association
 
@@ -79,12 +79,12 @@ Association
 　
 | Column           | Type       | Options                            |
 | ---------------- | ---------- | ---------------------------------- |
-| postal code      | string     | null: false                        |
-| shipping area_id | string     | null: false                        |
+| postal_code      | string     | null: false                        |
+| shipping_area_id | string     | null: false                        |
 | municipality     | string     | null: false                        |
 | address          | string     | null: false                        |
-| building name    | string     |                                    |
-| phone number     | string     | null: false                        |
+| building_name    | string     |                                    |
+| phone_number     | string     | null: false                        |
 | purchase_record  | references | null: false, foreign_key: true     |
 
 Association
