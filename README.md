@@ -27,16 +27,16 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column             | Type   | Options      |
-| ------------------ | ------ | ------------ |
-| nickname           | string | null: false  |
-| email              | string | null: false  |
-| encrypted_password | string | null: false  |
-| family name        | string | null: false  |
-| first name         | string | null: false  |
-| family name (ruby) | string | null: false  |
-| first name (ruby)  | string | null: false  |
-| birthday           | date   | null: false  |
+| Column             | Type   | Options                    |
+| ------------------ | ------ | -------------------------- |
+| nickname           | string | null: false                |
+| email              | string | null: false ,unique: true  |
+| encrypted_password | string | null: false                |
+| family name        | string | null: false                |
+| first name         | string | null: false                |
+| family name (ruby) | string | null: false                |
+| first name (ruby)  | string | null: false                |
+| birthday           | date   | null: false                |
 
  Association
 
@@ -53,7 +53,7 @@ Things you may want to cover:
 | category                | string     | null: false                      |
 | product status          | integer    | null: false                      |
 | delivery charge         | integer    | null: false                      |
-| shipping area           | integer    | null: false                      |
+| shipping area_id        | integer    | null: false                      |
 | estimated shipping date | integer    | null: false                      |
 
 Association
@@ -77,14 +77,15 @@ Association
 
 ## shipping_address テーブル
 　
-| Column        | Type   | Options                        |
-| ------------- | ------ | ------------------------------ |
-| postal code   | string | null: false, foreign_key: true |
-| shipping area | string | null: false, foreign_key: true |
-| municipality  | string | null: false, foreign_key: true |
-| address       | string | null: false, foreign_key: true |
-| building name | string |                                |
-| phone number  | string | null: false, foreign_key: true |
+| Column           | Type       | Options                            |
+| ---------------- | ---------- | ---------------------------------- |
+| postal code      | string     | null: false                        |
+| shipping area_id | string     | null: false                        |
+| municipality     | string     | null: false                        |
+| address          | string     | null: false                        |
+| building name    | string     |                                    |
+| phone number     | string     | null: false                        |
+| purchase_record  | references | null: false, foreign_key: true     |
 
 Association
 
