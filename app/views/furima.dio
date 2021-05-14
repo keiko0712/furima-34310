@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="15zW1sCAIS7DuW6iJgqe" name="ページ1">
-        <mxGraphModel dx="728" dy="670" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="746" dy="727" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -95,10 +95,10 @@
                     <mxGeometry x="530" y="225" width="150" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="97" value="category_id" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="1">
-                    <mxGeometry x="530" y="195" width="150" height="30" as="geometry"/>
+                    <mxGeometry x="530" y="204.5" width="150" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="98" value="user" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="1">
-                    <mxGeometry x="530" y="165" width="150" height="30" as="geometry"/>
+                <mxCell id="98" value="price" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="1">
+                    <mxGeometry x="530" y="160" width="150" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="100" value="product_status_id" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="1">
                     <mxGeometry x="530" y="289" width="150" height="30" as="geometry"/>
@@ -200,13 +200,16 @@
                     <mxGeometry x="530" y="110" width="150" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="139" value="description_of _product" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="1">
-                    <mxGeometry x="530" y="140" width="150" height="30" as="geometry"/>
+                    <mxGeometry x="530" y="135" width="150" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="142" value="shipping_area_id" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="1">
                     <mxGeometry x="530" y="255" width="150" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="143" value="purchase_record" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="1">
                     <mxGeometry x="390" y="680" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="144" value="user" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="1">
+                    <mxGeometry x="530" y="180" width="150" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
