@@ -59,8 +59,8 @@ Things you may want to cover:
 
 Association
 
-- belongs_to : users
-- has_one    : purchase_records
+- belongs_to : user
+- has_one    : purchase_record
 
 ## purchase_records　テーブル
 
@@ -71,9 +71,9 @@ Association
 
 Association
 
-- belongs_to : users
-- belongs_to : products
-- has_one    : shipping_addresses
+- belongs_to : user
+- belongs_to : product
+- has_one    : shipping_address
 
 
 ## shipping_addresses テーブル
@@ -90,4 +90,4 @@ Association
 
 Association
 
-- belongs_to : purchase_records　
+- belongs_to : purchase_record
