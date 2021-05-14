@@ -59,10 +59,10 @@ Things you may want to cover:
 
 Association
 
-- belongs_to : user
-- has_one    : purchase_record
+- belongs_to : users
+- has_one    : purchase_records
 
-## purchase_record　テーブル
+## purchase_records　テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
@@ -71,12 +71,12 @@ Association
 
 Association
 
-- belongs_to : user
-- belongs_to : product
-- has_one    : shipping_address
+- belongs_to : users
+- belongs_to : products
+- has_one    : shipping_addresses
 
 
-## shipping_address テーブル
+## shipping_addresses テーブル
 　
 | Column           | Type       | Options                            |
 | ---------------- | ---------- | ---------------------------------- |
@@ -90,4 +90,4 @@ Association
 
 Association
 
-- belongs_to : purchase_record　
+- belongs_to : purchase_records　
