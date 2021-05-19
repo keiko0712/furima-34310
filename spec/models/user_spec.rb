@@ -4,6 +4,7 @@ require 'rails_helper'
     @user = FactoryBot.build(:user)
   end
    describe "ユーザー新規登録" do
+    context "ユーザー新規登録ができない時" do
     it "nicknameが空だと登録できない" do
       @user.nickname = ''
       @user.valid?
@@ -42,6 +43,8 @@ require 'rails_helper'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password is invalid")
      end
+    end
+    context "ユーザー新規登録ができる時" do
      it "passwordは確認用を含めて2回入力すること" do
       @user.password = 'aaaaaa1'
       @user.password_confirmation = ''
@@ -99,5 +102,6 @@ require 'rails_helper'
       @user.valid?
       expect(@user.errors.full_messages).to include("Birthday can't be blank")
      end
+    end
    end
  end
