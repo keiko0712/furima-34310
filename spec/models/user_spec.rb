@@ -43,17 +43,22 @@ require 'rails_helper'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password is invalid")
      end
+     it "passwordとpassword_confirmationの値が一致しないと登録できない" do
+      @user.password = 'aaaaaa1'
+      @user.password_confirmation = 'aaaaaa2'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+     end
+     it "birthdayが空だと登録できない" do
+      @user.birthday = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Birthday can't be blank")
+     end
     end
     context "ユーザー新規登録ができる時" do
      it "passwordは確認用を含めて2回入力すること" do
       @user.password = 'aaaaaa1'
       @user.password_confirmation = ''
-      @user.valid?
-      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
-     end
-     it "passwordとpassword_confirmationの値が一致しないと登録できない" do
-      @user.password = 'aaaaaa1'
-      @user.password_confirmation = 'aaaaaa2'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
      end
@@ -96,11 +101,6 @@ require 'rails_helper'
       @user.first_name_ruby = 'たろう'
       @user.valid?
       expect(@user.errors.full_messages).to include("First name ruby is invalid")
-     end
-     it "birthdayが空だと登録できない" do
-      @user.birthday = ''
-      @user.valid?
-      expect(@user.errors.full_messages).to include("Birthday can't be blank")
      end
     end
    end
