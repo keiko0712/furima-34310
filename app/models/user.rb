@@ -11,4 +11,5 @@ class User < ApplicationRecord
   validates :first_name_ruby, presence: true
   validates :birthday, presence: true
 
+
 end
