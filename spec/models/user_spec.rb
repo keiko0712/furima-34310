@@ -104,6 +104,16 @@ require 'rails_helper'
         @user.valid?
         expect(@user.errors.full_messages).to include("First name ruby is invalid")
       end
+      it "ユーザー本名の名字のフリガナは、半角文字だと登録できない" do
+        @user.family_name_ruby = 'yamada'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name ruby is invalid")
+      end
+      it "ユーザー本名の名前のフリガナは、半角文字だと登録できない" do
+        @user.first_name_ruby = 'tarou'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name ruby is invalid")
+      end
     end
 
     context "ユーザー新規登録ができる時" do
