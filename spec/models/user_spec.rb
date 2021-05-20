@@ -69,49 +69,40 @@ require 'rails_helper'
     context "ユーザー新規登録ができる時" do
      it "passwordは確認用を含めて2回入力すること" do
       @user.password = 'aaaaaa1'
-      @user.password_confirmation = ''
-      @user.valid?
-      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+      @user.password_confirmation = 'aaaaaa1'
+      expect(@user).to be_valid
      end
      it "ユーザー本名は、名前が必須であること" do
-      @user.first_name = ''
-      @user.valid?
-      expect(@user.errors.full_messages).to include("First name can't be blank")
+      @user.first_name = '太郎'
+      expect(@user).to be_valid
      end 
      it "ユーザー本名は、名字が必須であること" do
-      @user.family_name = '' 
-      @user.valid?
-      expect(@user.errors.full_messages).to include("Family name can't be blank")
+      @user.family_name = '山田' 
+      expect(@user).to be_valid
      end 
      it "ユーザー本名の名字は、全角（漢字・ひらがな・カタカナ）での入力が必須であること" do
-      @user.family_name = 'yamada'
-      @user.valid?
-      expect(@user.errors.full_messages).to include("Family name is invalid")
+      @user.family_name = 'やまだ'
+      expect(@user).to be_valid
      end
      it "ユーザー本名の名前、全角（漢字・ひらがな・カタカナ）での入力が必須であること" do
-      @user.first_name = 'tarou'
-      @user.valid?
-      expect(@user.errors.full_messages).to include("First name is invalid")
+      @user.first_name = 'たろう'
+      expect(@user).to be_valid
      end
      it "ユーザー本名の名字はフリガナが必須であること" do
-      @user.family_name_ruby = ''
-      @user.valid?
-      expect(@user.errors.full_messages).to include("Family name ruby can't be blank")
+      @user.family_name_ruby = 'ヤマダ'
+      expect(@user).to be_valid
      end
      it "ユーザー本名の名前はフリガナが必須であること" do
-      @user.first_name_ruby = ''
-      @user.valid?
-      expect(@user.errors.full_messages).to include("First name ruby can't be blank")
+      @user.first_name_ruby = 'タロウ'
+      expect(@user).to be_valid
      end
      it "ユーザー本名の名字のフリガナは、全角（カタカナ）での入力が必須であること" do
-      @user.family_name_ruby = 'やまだ'
-      @user.valid?
-      expect(@user.errors.full_messages).to include("Family name ruby is invalid")
+      @user.family_name_ruby = 'ヤマダ'
+      expect(@user).to be_valid
      end
      it "ユーザー本名の名前のフリガナは、全角（カタカナ）での入力が必須であること" do
-      @user.first_name_ruby = 'たろう'
-      @user.valid?
-      expect(@user.errors.full_messages).to include("First name ruby is invalid")
+      @user.first_name_ruby = 'タロウ'
+      expect(@user).to be_valid
      end
     end
    end
