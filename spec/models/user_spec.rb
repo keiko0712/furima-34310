@@ -64,6 +64,46 @@ require 'rails_helper'
       @user.valid?
       expect(@user.errors.full_messages).to include("Birthday can't be blank")
      end
+     it "ユーザー本名は、名字が空だと登録できない" do
+      @user.family_name = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Family name can't be blank")
+     end
+     it "ユーザー本名は、名前が空だと登録できない" do
+      @user.first_name  = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name can't be blank")
+     end
+     it "ユーザー本名は、名字は全角（漢字・ひらがな・カタカナ)でないと登録できない" do
+      @user.family_name = 'yamada'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Family name is invalid")
+     end
+     it "ユーザー本名は、名前は全角（漢字・ひらがな・カタカナ)でないと登録できない" do
+      @user.first_name = 'tarou'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name is invalid")
+     end
+     it "ユーザー本の名前はフリガナがないと登録できない" do
+      @user.first_name_ruby = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name ruby can't be blank")
+     end
+      it "ユーザー本の名字はフリガナがないと登録できない" do
+        @user.family_name_ruby = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name ruby can't be blank")
+      end
+      it "ユーザー本名の名字のフリガナは、全角（カタカナ）でなければ登録できない" do
+        @user.family_name_ruby = 'やまだ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name ruby is invalid")
+      end
+      it "ユーザー本名の名前のフリガナは、全角（カタカナ）でなければ登録できない" do
+        @user.first_name_ruby = 'たろう'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name ruby is invalid")
+      end
     end
 
     context "ユーザー新規登録ができる時" do
