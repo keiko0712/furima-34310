@@ -2,7 +2,11 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category, :delivery_charge, :estimated_shipping_date, :item_status, :shipping_area
+  belongs_to :category
+  belongs_to :delivery_charge
+  belongs_to :estimated_shipping_date
+  belongs_to :item_status
+  belongs_to :shipping_area
 
   validates :image, :name, :description_of_item, presence: true
 
