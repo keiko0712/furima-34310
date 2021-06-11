@@ -18,7 +18,16 @@ class ItemsController < ApplicationController
       render :new
     end
   end
+
+  def show
+    @item = Item.find(params[:id])
+  end
   
+  def purchase
+    @item= Item.find(params[:id])
+    @item.update(buyer_id: current_user.id)
+  end
+
   private
   
   def item_params

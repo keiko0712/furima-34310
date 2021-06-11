@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :estimated_shipping_date
   belongs_to :item_status
   belongs_to :shipping_area
+  belongs_to :user
 
   validates :image, :name, :description_of_item, presence: true
 
