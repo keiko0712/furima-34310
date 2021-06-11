@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
   
+
   def new
     @item = Item.new
   end
@@ -18,7 +19,17 @@ class ItemsController < ApplicationController
       render :new
     end
   end
+
+  def show
+    @item = Item.find(params[:id])
+  end
   
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :show
+    end
+  end
+
   private
   
   def item_params
