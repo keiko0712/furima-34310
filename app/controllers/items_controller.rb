@@ -24,11 +24,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
   
-  def purchase
-    @item= Item.find(params[:id])
-    @item.update(buyer_id: current_user.id)
-  end
-
   def move_to_index
     unless user_signed_in?
       redirect_to action: :show
