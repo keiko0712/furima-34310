@@ -24,17 +24,11 @@ class ItemsController < ApplicationController
   def show
   end
   
-  def move_to_index
-    unless user_signed_in?
-      redirect_to action: :show
-    end
-  end
   
   def edit
   end
 
   def update
-    @item.update(item_params)
     if @item.update(item_params)
       redirect_to root_path
     else
