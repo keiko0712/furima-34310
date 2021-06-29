@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :sold_out_item, only: [:index]
+  before_action :authenticate_user!
 
   def index
     @item = Item.find(params[:item_id])
@@ -21,6 +22,8 @@ class OrdersController < ApplicationController
   
   private
 
+
+
  def order_params
   params.require(:order).permit(:item_id, :user_id, :postal_code, :building_name, :price, :number, 
     :exp_month, :exp_year, :cvc, :shipping_area_id, :municipality, :address, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id] ,token: params[:token])
@@ -37,7 +40,7 @@ end
 
 def sold_out_item
   @item = Item.find(params[:item_id])
-  if @item.purchase_record.present?
+  if @item.purchase_record.present? || current_user.id == @item.user_id
    redirect_to root_path 
   end
  end
