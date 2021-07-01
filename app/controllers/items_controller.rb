@@ -26,6 +26,12 @@ class ItemsController < ApplicationController
   
   
   def edit
+    @item = Item.find(params[:item_id])
+  if @item.purchase_record.present? && current_user.id == @item.user_id
+   redirect_to root_path 
+  end
+ end
+
   end
 
   def update
@@ -56,4 +62,4 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:image, :name, :description_of_item, :category_id, :item_status_id, :delivery_charge_id, :shipping_area_id, :estimated_shipping_date_id, :price
     ).merge(user_id: current_user.id)
   end
-end
+
