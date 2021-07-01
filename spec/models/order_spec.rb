@@ -2,13 +2,18 @@ require 'rails_helper'
 
 RSpec.describe Order, type: :model do
   before do
-    @user = FactoryBot.create(:user)
-    @item = FactoryBot.build(:item,user_id:@user.id)
-    @order = FactoryBot.build(:order)
+    user = FactoryBot.create(:user)
+    item = FactoryBot.create(:item)
+    @order = FactoryBot.build(:order, user_id:user.id, item_id:item.id)
+    sleep(0.5)
   end
   describe "商品購入" do
     context '商品購入ができる時' do
       it '全ての値が正しく入力されていれば購入できる' do
+      expect(@order).to be_valid
+      end
+      it '建物名がなくても購入できる' do
+      @order.building_name = nil
       expect(@order).to be_valid
       end
    end
@@ -24,7 +29,7 @@ RSpec.describe Order, type: :model do
      expect(@order.errors.full_messages).to include("Shipping area can't be blank")
    end
    it "shipping_area_idに1が選択されている場合は購入できない" do
-    @order.shipping_area_id = "1"
+    @order.shipping_area_id = 1
     @order.valid?
     expect(@order.errors.full_messages).to include("Shipping area Select")
   end
@@ -59,7 +64,7 @@ RSpec.describe Order, type: :model do
     expect(@order.errors.full_messages).to include("Phone number is invalid")
   end
    it "postal_codeにハイフンがないと購入できない" do
-    @order.postal_code = 1234567
+    @order.postal_code = "1234567"
     @order.valid?
     expect(@order.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
   end
