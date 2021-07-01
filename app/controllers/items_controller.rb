@@ -26,10 +26,6 @@ class ItemsController < ApplicationController
   
   
   def edit
-    @item = Item.find(params[:item_id])
-  if @item.purchase_record.present? && current_user.id == @item.user_id
-   redirect_to root_path 
-  end
  end
 
   end
@@ -55,7 +51,9 @@ class ItemsController < ApplicationController
   end
   
   def redirect
-    redirect_to root_path unless current_user.id == @item.user_id
+    if @item.purchase_record.present? && current_user.id == @item.user_id
+      redirect_to root_path 
+     end
   end
 
   def item_params
